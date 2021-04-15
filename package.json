@@ -1,0 +1,29 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "A CMS for managing a company's employees.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marlonmatthew/employee-tracker.git"
+  },
+  "keywords": [
+    "Employee",
+    "CMS"
+  ],
+  "author": "Marlon Matthew",
+  "license": "ISC",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^7.0.0",
+    "mysql": "^2.17.1"
+  },
+  "bugs": {
+    "url": "https://github.com/marlonmatthew/employee-tracker/issues"
+  },
+  "homepage": "https://github.com/marlonmatthew/employee-tracker#readme"
+}
