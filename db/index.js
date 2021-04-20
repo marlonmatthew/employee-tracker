@@ -15,13 +15,6 @@ class DB {
     return this.connection.query("INSERT INTO employee SET ?", employee);
   }
 
-  updateEmployeeRole(employeeId, roleId) {
-    return this.connection.query(
-      "UPDATE employee SET role_id = ? WHERE id = ?",
-      [roleId, employeeId]
-    );
-  }
-
   getRoles() {
     return this.connection.query(
       "SELECT role.id, role.title, department.name AS department"
@@ -38,6 +31,13 @@ class DB {
 
   createDepartment(department) {
     return this.connection.query("INSERT INTO department SET ?", department);
+  }
+
+  updateEmployeeRole(employeeId, roleId) {
+    return this.connection.query(
+      "UPDATE employee SET role_id = ? WHERE id = ?",
+      [roleId, employeeId]
+    );
   }
 }
 

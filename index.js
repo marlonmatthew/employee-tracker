@@ -64,4 +64,154 @@ async function init() {
   }
 }
 
+async function viewEmployees() {
+  const employees = await db.getEmployees();
+
+  console.table(employees);
+
+  init();
+}
+
+async function addEmployee() {
+  const roles = await db.getRoles();
+
+  const employee = await prompt([
+    {
+      name: "first_name",
+      message: "Enter the employee's first name: ",
+    },
+    {
+      name: "last_name",
+      message: "Enter the employee's last name: ",
+    },
+  ]);
+
+  const roleSelect = roles.map(({ id, title }) => ({
+    name: title,
+    value: id,
+  }));
+
+  const { roleId } = await prompt({
+    type: "list",
+    name: "roleId",
+    message: "Enter the employee's role: ",
+    choices: roleSelect,
+  });
+
+  employee.role_id = roleId;
+
+  await db.createEmployee(employee);
+
+  console.log(`${employee.first_name} ${employee.last_name} created!`);
+
+  init();
+}
+
+async function viewRoles() {
+  const roles = await db.getRoles();
+
+  console.table(roles);
+
+  init();
+}
+
+async function addRole() {
+  const departments = await db.getDepartments();
+
+  const departmentSelect = departments.map(({ id, name }) => ({
+    name: name,
+    value: id,
+  }));
+
+  const role = await prompt([
+    {
+      name: "title",
+      message: "Enter the role: ",
+    },
+    {
+      name: "salary",
+      message: "Enter the salary for the role: ",
+    },
+    {
+      type: "list",
+      name: "department_id",
+      message: "Which department is the role associated with: ",
+      choices: departmentSelect,
+    },
+  ]);
+
+  await db.createRole(role);
+
+  console.log(`${role.title} created!`);
+
+  init();
+}
+
+async function viewDepartments() {
+  const departments = await db.getDepartments();
+
+  console.table(departments);
+
+  init();
+}
+
+async function addDepartment() {
+  const department = await prompt([
+    {
+      name: "name",
+      message: "Enter the name of the department: ",
+    },
+  ]);
+
+  await db.createDepartment(department);
+
+  console.log(`${department.name} created!`);
+
+  init();
+}
+
+async function updateEmployeeRole() {
+  const employees = await db.getEmployees();
+
+  const employeeSelect = employees.map(({ id, first_name, last_name }) => ({
+    name: `${first_name} ${last_name}`,
+    value: id,
+  }));
+
+  const { employeeId } = await prompt([
+    {
+      type: "list",
+      name: "employeeId",
+      message: "Select the employee: ",
+      choices: employeeSelect,
+    },
+  ]);
+
+  const roles = await db.getRoles();
+
+  const roleSelect = roles.map(({ id, title }) => ({
+    name: title,
+    value: id,
+  }));
+
+  const { roleId } = await prompt([
+    {
+      type: "list",
+      name: "roleId",
+      message: "Select the employee role: ",
+      choices: roleSelect,
+    },
+  ]);
+
+  await db.updateEmployeeRole(employeeId, roleId);
+
+  console.log("Updated!");
+
+  init();
+}
+
+function quit() {
+  process.exit();
+}
+
 init();
