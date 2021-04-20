@@ -21,13 +21,13 @@ VALUES
     ('Architect I', 70000, 4);
 
 INSERT INTO employee
-    (first_name, last_name, role_id, manager_id)
+    (first_name, last_name, role_id)
 VALUES
-    ('David', 'Wilson', 1, 1),
-    ('Chris', 'Sorensen', 2, NULL),
-    ('Wendy', 'Black', 3, 2),
-    ('Charles', 'Perrone', 4, 3),
-    ('Gabriel', 'Knight', 5, NULL),
-    ('Karen', 'Peters', 6, 4),
-    ('Rachel', 'Givens', 7, 5),
-    ('Claudia', 'Coronado', 8, NULL);
+    ('David', 'Wilson', 1),
+    ('Chris', 'Sorensen', 2),
+    ('Wendy', 'Black', 3),
+    ('Charles', 'Perrone', 4),
+    ('Gabriel', 'Knight', 5),
+    ('Karen', 'Peters', 6),
+    ('Rachel', 'Givens', 7),
+    ('Claudia', 'Coronado', 8);
