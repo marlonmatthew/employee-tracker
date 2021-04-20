@@ -1,5 +1,6 @@
 const { prompt } = require("inquirer");
 require("console.table");
+const db = require("./db");
 
 async function init() {
   const { choose } = await prompt([
