@@ -13,28 +13,12 @@ async function init() {
           value: "VIEW-EMPLOYEES",
         },
         {
-          name: "View employees by department",
-          value: "VIEW-EMPLOYEES-BY-DEPARTMENT",
-        },
-        {
-          name: "View employees by manager",
-          value: "VIEW-EMPLOYEES-BY-MANAGER",
-        },
-        {
           name: "Add an employee",
           value: "ADD-EMPLOYEE",
         },
         {
-          name: "Remove an employee",
-          value: "REMOVE-EMPLOYEE",
-        },
-        {
           name: "Update an employee role",
           value: "UPDATE-EMPLOYEE_ROLE",
-        },
-        {
-          name: "Update an employee's manager",
-          value: "UPDATE-EMPLOYEE-MANAGER",
         },
         {
           name: "View roles",
@@ -71,30 +55,18 @@ async function init() {
   switch (choose) {
     case "VIEW-EMPLOYEES":
       return viewEmployees();
-    case "VIEW-EMPLOYEES-BY-DEPARTMENT":
-      return viewEmployeesByDepartment();
-    case "VIEW-EMPLOYEES-BY-MANAGER":
-      return viewEmployeesByManager();
     case "ADD-EMPLOYEE":
       return addEmployee();
-    case "REMOVE-EMPLOYEE":
-      return removeEmployee();
     case "UPDATE-EMPLOYEE-ROLE":
       return updateEmployeeRole();
-    case "UPDATE-EMPLOYEE-MANAGER":
-      return updateEmployeeManager();
     case "VIEW-DEPARTMENTS":
       return viewDepartments();
     case "ADD-DEPARTMENT":
       return addDepartment();
-    case "REMOVE-DEPARTMENT":
-      return removeDepartment();
     case "VIEW-ROLES":
       return viewRoles();
     case "ADD-ROLE":
       return addRole();
-    case "REMOVE-ROLE":
-      return removeRole();
     default:
       return quit();
   }
